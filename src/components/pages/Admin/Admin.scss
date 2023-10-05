@@ -1,0 +1,123 @@
+#Admin {
+    .Admin {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            color: #33332D;
+            font-family: Montserrat;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 3.2px;
+            margin-top: 28px;
+            margin-bottom: 55px;
+        }
+
+        .admin-block {
+            width: 100%;
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            padding: 0 50px;
+
+            .choose-block {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+
+                .choose-file {
+                    width: 395px;
+                    height: 77px;
+                    border-radius: 10px;
+                    background: #D9D9D9;
+
+                    input {
+                        width: 90%;
+                        height: 100%;
+                        outline: none;
+                        border: none;
+                        background: transparent;
+                        color: #000;
+                        font-size: 24px;
+                        font-weight: 500;
+                        line-height: normal;
+                        margin-left: 40px;
+                    }
+                }
+
+                .food-name {
+                    width: 579px;
+                    height: 77px;
+                    border-radius: 10px;
+                    background: #D9D9D9;
+                    margin: 44px 0;
+
+                    input {
+                        width: 90%;
+                        height: 100%;
+                        outline: none;
+                        border: none;
+                        background: transparent;
+                        color: #000;
+                        font-family: Montserrat;
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        letter-spacing: 2.4px;
+                        margin-left: 40px;
+                    }
+                }
+
+                .price {
+                    width: 579px;
+                    height: 77px;
+                    border-radius: 10px;
+                    background: #D9D9D9;
+
+                    input {
+                        width: 90%;
+                        height: 100%;
+                        outline: none;
+                        border: none;
+                        background: transparent;
+                        color: #000;
+                        font-family: Montserrat;
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        letter-spacing: 2.4px;
+                        margin-left: 40px;
+                    }
+                }
+
+                button {
+                    border: none;
+                    padding: 20px 50px;
+                    color: #FFF;
+                    font-family: Montserrat;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    letter-spacing: 1.08px;
+                    border-radius: 10px;
+                    background: #DDAA27;
+                    margin-top: 120px;
+                }
+            }
+
+            .place {
+                width: 497px;
+                height: 322px;
+                border-radius: 10px;
+                background: #D9D9D9;
+            }
+        }
+    }
+}
