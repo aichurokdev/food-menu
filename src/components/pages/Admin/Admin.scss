@@ -8,7 +8,7 @@
         h1 {
             color: #33332D;
             font-family: Montserrat;
-            font-size: 36px;
+            font-size: 26px;
             font-style: normal;
             font-weight: 500;
             line-height: normal;
@@ -28,14 +28,20 @@
                 display: flex;
                 flex-direction: column;
                 align-items: start;
+                .polya {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: red;
 
+                }
                 .choose-file {
-                    width: 395px;
-                    height: 77px;
+                    width: 375px;
+                    height: 67px;
                     border-radius: 10px;
                     background: #D9D9D9;
 
-                    input {
+                    input[type="file"] {
+                        display: none;
                         width: 90%;
                         height: 100%;
                         outline: none;
@@ -46,12 +52,25 @@
                         font-weight: 500;
                         line-height: normal;
                         margin-left: 40px;
+                        cursor: pointer;
+                    }
+
+                     .file-input-label {
+                        background: transparent;
+                        color: #000;
+                        font-size: 24px;
+                        font-weight: 500;
+                        line-height: normal;
+                        margin-left: 40px;
+                        cursor: pointer;
+                        position: relative;
+                        top: 20px;
                     }
                 }
 
                 .food-name {
-                    width: 579px;
-                    height: 77px;
+                    width: 559px;
+                    height: 67px;
                     border-radius: 10px;
                     background: #D9D9D9;
                     margin: 44px 0;
@@ -70,12 +89,13 @@
                         line-height: normal;
                         letter-spacing: 2.4px;
                         margin-left: 40px;
+                        cursor: pointer;
                     }
                 }
 
                 .price {
-                    width: 579px;
-                    height: 77px;
+                    width: 559px;
+                    height: 67px;
                     border-radius: 10px;
                     background: #D9D9D9;
 
@@ -93,30 +113,42 @@
                         line-height: normal;
                         letter-spacing: 2.4px;
                         margin-left: 40px;
+                        cursor: pointer;
                     }
                 }
 
                 button {
+                    cursor: pointer;
                     border: none;
                     padding: 20px 50px;
                     color: #FFF;
                     font-family: Montserrat;
-                    font-size: 30px;
+                    font-size: 25px;
                     font-style: normal;
                     font-weight: 500;
                     line-height: normal;
                     letter-spacing: 1.08px;
                     border-radius: 10px;
                     background: #DDAA27;
-                    margin-top: 120px;
+                    margin-top: 80px;
                 }
             }
 
             .place {
-                width: 497px;
-                height: 322px;
+                width: 450px;
+                height: 290px;
                 border-radius: 10px;
                 background: #D9D9D9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                p {
+                    font-size: 25px;
+                    color: #000;
+                    font-weight: 500;
+                    letter-spacing: 2.5px;
+                }
             }
         }
     }

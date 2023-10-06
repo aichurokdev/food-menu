@@ -1,10 +1,38 @@
 import React, { useState } from "react";
 import "./Admin.scss";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
-  const [file, setFile] = useState(null);
+  const [image, setImage] = useState(null);
   const [foodName, setFoodName] = useState("");
   const [price, setPrice] = useState("");
+  const [isPolya, setIsPolya] = useState(false);
+  const navigate = useNavigate();
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  };
+
+  const handleCreate = () => {
+    console.log("image:", image);
+    console.log("foodName:", foodName);
+    console.log("price:", price);
+    if (image && foodName.length > 0 && price.length > 0) {
+      setIsPolya(true);
+      navigate("/menu");
+    } else {
+      setIsPolya(false);
+    }
+  };
+
+  const handleFoodNameChange = (e) => {
+    setFoodName(e.target.value);
+  };
+
+  const handlePriceChange = (e) => {
+    setPrice(e.target.value);
+  };
 
   return (
     <div id="Admin">
@@ -14,22 +42,41 @@ const Admin = () => {
           <div className="admin-block">
             <div className="choose-block">
               <div className="choose-file">
-                <input
-                  type="file"
-                  placeholder="choose file"
-                  accept="image/png, image/jpg"
-                />
+                <label className="file-input-label">
+                  Choose File
+                  <input
+                    type="file"
+                    accept="image/png, image/jpg"
+                    onChange={handleImageChange}
+                  />
+                </label>
               </div>
               <div className="food-name">
-                <input type="text" placeholder="food name" value={foodName} />
+                <input
+                  type="text"
+                  placeholder="food name"
+                  value={foodName}
+                  onChange={handleFoodNameChange}
+                />
+                {isPolya && <p className="polya">заполните поля </p>}
               </div>
               <div className="price">
-                <input type="text" placeholder="price" value={price} />
+                <input
+                  type="text"
+                  placeholder="price"
+                  value={price}
+                  onChange={handlePriceChange}
+                />
               </div>
-              <button>create</button>
+              {isPolya && <p className="polya">заполните поля </p>}
+              <button onClick={handleCreate}>create</button>
             </div>
             <div className="place">
-              <img src="" alt="" />
+              {image ? (
+                <img src={URL.createObjectURL(image)} alt="Selected Image" />
+              ) : (
+                <p>place for a photo </p>
+              )}
             </div>
           </div>
         </div>
