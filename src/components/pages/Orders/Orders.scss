@@ -3,8 +3,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-
-
         .orders--h1{
             color: #33332D;
             font-family: Montserrat;
@@ -18,8 +16,7 @@
         }
         .orders--blocks{
             max-height: 300px;
-    overflow-y: auto;
-
+            overflow-y: auto;
         }
         .orders--blocks::-webkit-scrollbar{
             width: 0;
@@ -65,16 +62,16 @@
     .orders--blocks__block--texts__btns{
         .orders--btn1{
             color: #FFF;
-font-family: Montserrat;
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;border-radius: 10px;
-background: #BD1D1D;
-letter-spacing: 0.6px;width: 188px;
-border: none;
-height: 40px;
-flex-shrink: 0;
+            font-family: Montserrat;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;border-radius: 10px;
+            background: #BD1D1D;
+            letter-spacing: 0.6px;width: 188px;
+            border: none;
+            height: 40px;
+            flex-shrink: 0;
         }
         .orders--btn1:hover{
             background: white;
@@ -92,10 +89,10 @@ flex-shrink: 0;
             .inc{
                 width: 60px;
                 font-size: 32px;
-height: 38px;
-flex-shrink: 0;border-radius: 10px;
-background: #DDAA27;
-border: none;
+                height: 38px;
+                flex-shrink: 0;border-radius: 10px;
+                background: #DDAA27;
+                border: none;
             }
             .inc:hover{
                 background: white;
@@ -111,9 +108,7 @@ border: none;
                 font-weight: 500;
                 line-height: normal;
                 letter-spacing: 0.72px;}
-
         }
-        
     }
     .last-btn{
         width: 886px;
@@ -121,18 +116,18 @@ border: none;
         justify-content: end;
         .last-btnn{
             width: 254.1px;
-height: 70px;
-flex-shrink: 0;border-radius: 10px;
-background: #20953A;color: #FFF;
-font-family: Montserrat;
-font-size: 36px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 1.08px;
-border: none;
-margin-top: 90px;
-position: fixed ;
+            height: 70px;
+            flex-shrink: 0;border-radius: 10px;
+            background: #20953A;color: #FFF;
+            font-family: Montserrat;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 1.08px;
+            border: none;
+            margin-top: 90px;
+        position: fixed ;
         }
         .last-btnn:hover{
             background: white;
@@ -142,5 +137,4 @@ position: fixed ;
             transition: 0.3s;
         }
     }
-   
 }
