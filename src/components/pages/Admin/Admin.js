@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Admin.scss";
 import { useNavigate } from "react-router-dom";
+import {v4 as uuidv4 } from "uuid"
 
 const Admin = () => {
   const [image, setImage] = useState(null);
@@ -15,9 +16,9 @@ const Admin = () => {
   };
 
   const handleCreate = () => {
-    console.log("image:", image);
-    console.log("foodName:", foodName);
-    console.log("price:", price);
+    // console.log("image:", image);
+    // console.log("foodName:", foodName);
+    // console.log("price:", price);
     if (image && foodName.length > 0 && price.length > 0) {
       setIsPolya(true);
       navigate("/menu");
@@ -25,6 +26,14 @@ const Admin = () => {
       setIsPolya(false);
     }
   };
+
+  const menu = {
+    id: uuidv4(),
+    image,
+    foodName,
+    price,
+
+  }
 
   const handleFoodNameChange = (e) => {
     setFoodName(e.target.value);
