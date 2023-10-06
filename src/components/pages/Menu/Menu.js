@@ -2,6 +2,7 @@ import React from 'react';
 import menuImg from "../../../img/image 3.png"
 
 const Menu = () => {
+    
     return (
         <div id='menu'>
             <div className='container'>
