@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./Admin.scss";
 import { useNavigate } from "react-router-dom";
-import {v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { GET_IMAGE } from "../../redux/actionTypes";
 
 const Admin = () => {
   const [image, setImage] = useState(null);
@@ -9,6 +11,7 @@ const Admin = () => {
   const [price, setPrice] = useState("");
   const [isPolya, setIsPolya] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -25,15 +28,20 @@ const Admin = () => {
     } else {
       setIsPolya(false);
     }
+    const menu = {
+      id: uuidv4(),
+      image,
+      foodName,
+      price,
+    };
+
+    dispatch({
+      type: GET_IMAGE,
+      payload: menu,
+    });
+    setFoodName("");
+    setPrice("");
   };
-
-  const menu = {
-    id: uuidv4(),
-    image,
-    foodName,
-    price,
-
-  }
 
   const handleFoodNameChange = (e) => {
     setFoodName(e.target.value);
