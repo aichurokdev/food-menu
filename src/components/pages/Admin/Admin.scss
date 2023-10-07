@@ -5,7 +5,7 @@
         align-items: center;
         justify-content: center;
 
-        h1 {
+        .admin--h1 {
             color: #33332D;
             font-family: Montserrat;
             font-size: 26px;
@@ -133,6 +133,11 @@
                     border-radius: 10px;
                     background: #DDAA27;
                     margin-top: 80px;
+                }
+                button:hover {
+                    background: #fff;
+                    color: #DDAA27;
+                    border: 1px solid #DDAA27;
                 }
             }
 

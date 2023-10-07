@@ -60,11 +60,12 @@ const Orders = () => {
             console.log('orderWithImages updated:', orderWithImages);
           }, [orderWithImages]);
         
+const Orders = ({dark, setDark}) => {
     return (
         <div id='orders'>
             <div className='container'>
                 <div className='orders'>
-                    <h1 className='orders--h1'>TO ORDER</h1>
+                    <h1 style={{ color: dark ? "#fff" : "" }} className='orders--h1'>TO ORDER</h1>
                     <div className='orders--blocks'>
                         {
                             orderWithImages.map((el,idx)=>
