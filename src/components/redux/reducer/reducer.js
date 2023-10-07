@@ -1,4 +1,4 @@
-import { GET_FOOD_NAME, GET_IMAGE, GET_ORDER } from "../actionTypes"
+import { ADD_TO_MINUS, GET_FOOD_NAME, GET_IMAGE, GET_ORDER } from "../actionTypes"
 
 const initialState={
     menu:[],
@@ -49,6 +49,21 @@ export const Reducer=(state=initialState, action)=>{
                     order:updatedOrder
                 }
             }
+            case ADD_TO_MINUS:
+  const foundProduct = state.menu.find((el) => el.id === action.payload.id);
+  if (foundProduct) {
+    const updatedMenu = state.menu.map((el) =>
+      el.id === foundProduct.id
+        ? { ...el, quantity: el.quantity !== 1 ? el.quantity - 1 : 1 } // Проверяем, чтобы количество не стало меньше 1
+        : el
+    );
+
+    return {
+      ...state,
+      menu: updatedMenu,
+    };
+  }
+  return state;
       
             default: return state
             
