@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Admin.scss";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
 import { GET_IMAGE } from "../../redux/actionTypes";
 
-const Admin = () => {
+const Admin = ({ dark, setDark }) => {
   const [image, setImage] = useState(null);
   const [foodName, setFoodName] = useState("");
   const [price, setPrice] = useState("");
@@ -13,49 +13,54 @@ const Admin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const savedData = localStorage.getItem("productData");
+    if (savedData) {
+      const parsedData = JSON.parse(savedData);
+      setFoodName(parsedData.foodName);
+      setPrice(parsedData.price);
+    }
+  }, []);
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setImage(file);
   };
 
   const handleCreate = () => {
-    // console.log("image:", image);
-    // console.log("foodName:", foodName);
-    // console.log("price:", price);
-    if (image && foodName.length > 0 && price.length > 0) {
+    if (image && foodName !== "" && price !== "") {
       setIsPolya(true);
+
+      const menu = {
+        id: uuidv4(),
+        image,
+        foodName,
+        price,
+      };
+
+      localStorage.setItem("productData", JSON.stringify(menu));
+
+      dispatch({
+        type: GET_IMAGE,
+        payload: menu,
+      });
+
+      setFoodName("");
+      setPrice("");
+
       navigate("/menu");
     } else {
       setIsPolya(false);
     }
-    const menu = {
-      id: uuidv4(),
-      image,
-      foodName,
-      price,
-    };
-
-    dispatch({
-      type: GET_IMAGE,
-      payload: menu,
-    });
-    setFoodName("");
-    setPrice("");
-  };
-
-  const handleFoodNameChange = (e) => {
-    setFoodName(e.target.value);
-  };
-
-  const handlePriceChange = (e) => {
-    setPrice(e.target.value);
   };
 
   return (
     <div id="Admin">
       <div className="container">
         <div className="Admin">
-          <h1>CREATE PRODUCT</h1>
+          <h1 className="admin--h1" style={{ color: dark ? "#fff" : "" }}>
+            CREATE PRODUCT
+          </h1>
           <div className="admin-block">
             <div className="choose-block">
               <div className="choose-file">
@@ -73,7 +78,7 @@ const Admin = () => {
                   type="text"
                   placeholder="food name"
                   value={foodName}
-                  onChange={handleFoodNameChange}
+                  onChange={(event) => setFoodName(event.target.value)}
                 />
                 {isPolya && <p className="polya">заполните поля </p>}
               </div>
@@ -82,7 +87,7 @@ const Admin = () => {
                   type="text"
                   placeholder="price"
                   value={price}
-                  onChange={handlePriceChange}
+                  onChange={(event) => setPrice(event.target.value)}
                 />
               </div>
               {isPolya && <p className="polya">заполните поля </p>}
