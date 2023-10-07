@@ -1,12 +1,12 @@
 import React from 'react';
 import ordersImg from "../../../img/image 6 (1).png"
 
-const Orders = () => {
+const Orders = ({dark, setDark}) => {
     return (
         <div id='orders'>
             <div className='container'>
                 <div className='orders'>
-                    <h1 className='orders--h1'>TO ORDER</h1>
+                    <h1 style={{ color: dark ? "#fff" : "" }} className='orders--h1'>TO ORDER</h1>
                     <div className='orders--blocks'>
                         <div className='orders--blocks__block'>
                             <img className='orders--img'src={ordersImg} alt=''/>
