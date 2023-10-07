@@ -5,14 +5,8 @@
     import { useNavigate } from 'react-router-dom';
     import { GET_ORDER } from '../../redux/actionTypes';
 
-    const Menu = () => {
-        const[price, setPrice]=useState('')
-        const [image, setImage] = useState(null);
-        const [foodName, setFoodName] = useState("");
-        const navigate=useNavigate()
+    const Menu = ({dark, setDark}) => {
         const dispatch=useDispatch()
-
-        
         const menu=useSelector((state)=>state.menu)
         console.log(menu);
         useEffect(() => {
@@ -27,9 +21,6 @@
         const handleOrder = (item) => {
             dispatch({type:GET_ORDER, payload:item});
           };
-
-          
-
 
         return (
             <div id='menu'>
@@ -49,30 +40,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                ))
-                            }
-const Menu = ({dark, setDark}) => {
-    
-    return (
-        <div id='menu'>
-            <div className='container'>
-                <div className='menu'>
-                    <h1 style={{ color: dark ? "#FFF" : "" }}  className='menu--h1'>MENU</h1>
-                    <div className='menu--blocks'>
-                        <div className='menu--blocks__block'>
-                            <img src={menuImg} alt=''/>
-                            <div className='menu--blocks__block--texts'>
-                                <p className='menu--p1'>shawarma</p>
-                                <div className='menu--blocks__block--order'>
-                                    <p className='menu--p2'>5$</p>
-                                    <button className='menu--blocks__block--order__btn'>to order</button>
+                                ))}
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    };
+                                </div>
+                                </div>
+                                </div>)
+}
 
-    export default Menu;
+
+export default Menu;
