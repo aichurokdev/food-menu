@@ -1,4 +1,4 @@
-import { GET_FOOD_NAME, GET_IMAGE } from "../actionTypes"
+import { GET_FOOD_NAME, GET_IMAGE, GET_ORDER } from "../actionTypes"
 
 const initialState={
     menu:[],
@@ -28,10 +28,29 @@ export const Reducer=(state=initialState, action)=>{
                 menu:updatedMenu
             };
         }
-            
-            
-        case GET_FOOD_NAME:
-            return{...state, menu:action.payload};
+
+        case GET_ORDER:
+            const savingToOrder=action.payload
+            const orderIndex=state.order.findIndex(
+                (saving)=>saving.id===savingToOrder.id
+            )
+            if(orderIndex!==-1){
+                const updatedOrder=[...state.order]
+                updatedOrder[orderIndex].quantity+=1
+                return{
+                    ...state,
+                    order:updatedOrder
+                }
+            }
+            else{
+                const updatedOrder=[...state.menu,{...savingToOrder,quantity:1}]
+                return{
+                    ...state,
+                    order:updatedOrder
+                }
+            }
+      
+            default: return state
             
     }
 }

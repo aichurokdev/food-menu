@@ -25,10 +25,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 15px;
+            padding-top: 10px;
             margin: 20px 0;
-            img{
-                border-radius: 15px;
+            .menu-img{
+                width: 305px ;
+            height: 165px;
+            border-radius: 15px;
+
             }
         }
         .menu--blocks__block--texts{
